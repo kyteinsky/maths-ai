@@ -21,5 +21,3 @@ Used OpinRank data
   publisher={Springer} 
 }
 ```
-
-And basic usage learnt from @kavgan
