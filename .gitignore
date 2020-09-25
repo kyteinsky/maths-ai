@@ -1,5 +1,6 @@
 *.tar.gz
 ds/
+trash/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

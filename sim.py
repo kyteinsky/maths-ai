@@ -5,8 +5,8 @@ import argparse
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--train', action='store_true')
-ap.add_argument('--ds', type=str, help='dataset file name with location')
+ap.add_argument('--train', action='store_true', help='True or Flase to train')
+ap.add_argument('--ds', type=str, help='dataset file name with location', required=True)
 ap.add_argument('-a', type=str)
 ap.add_argument('-b', type=str)
 ap.add_argument('-c', type=str)
