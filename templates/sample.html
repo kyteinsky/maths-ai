@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/style.css') }}?u={{ last_updated }}">
     <title>Maths AI!</title>
   </head>
   <body>
+    <!-- GRADIENT AT TOP-->
     <div class="grad"></div>
-    <div class="main-div mt-5">
+    <!-- ERROR MESSAGES -->
+      <div class="alert alert-danger" role="alert" id='err'>
+        err_msg
+      </div>
+    <!-- MATHS AI -->
+    <div class="form-row d-flex justify-content-center">
+      <p class="ai">maths ai</p>
+    </div>
+    <!-- INPUT BOXES -->
+    <div class="main-div mt-3">
       <div class="form-row d-flex justify-content-center form-group-lg">
         <div class="col-md-1">
           <p class="font-weight-bold txt py-3 a">ADD</p>
@@ -36,19 +46,84 @@
           <input type="text" class="form-control input-lg" id="c" required>
         </div>
       </div>
+      <!-- BUTTON -->
       <div class="form-row d-flex justify-content-center mb-3 mt-3">
-        <button type="button" class="btn btn-primary btn-lg mt-3 eq ">EQUALS</button>
+        <button type="button" class="btn btn-primary btn-lg mt-3 eq" id='btn'>EQUALS</button>
       </div>
+      <!-- INFERENCE -->
       <div class="form-row d-flex justify-content-center">
         <div class="mt-3">
-          <p class="font-weight-bold txt py-3 px-5 d">yo</p>
+          <p class="font-weight-bold txt py-3 px-5 d" id='pred'>pred</p>
         </div>
+      </div>
+      
+
+      <div class="form-row d-flex justify-content-center">
+        <div class="col-md-4 mb-5 eg px-3">
+          <div class="form-row d-flex justify-content-left" style="text-align: left;">
+            <div class="col-md-12 mt-3">
+              <p class="e" style="color: rgb(25, 103, 175);">Some examples to start: </p>
+              </div>
+          </div>
+          <div class="form-row d-flex justify-content-center" style="flex-wrap: nowrap;">
+            <div class="col-md-2">
+              <p class=" e">queen</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">+</p>
+            </div>
+            <div class="col-md-2">
+              <p class=" e">man</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">-</p>
+            </div>
+            <div class="col-md-2">
+              <p class=" e">woman</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">=</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <p class=" e" style="color: rgb(107, 179, 14);">king</p>
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-center" style="flex-wrap: nowrap;">
+            <div class="col-md-2">
+              <p class=" e">queen</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">+</p>
+            </div>
+            <div class="col-md-2">
+              <p class=" e">man</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">-</p>
+            </div>
+            <div class="col-md-2">
+              <p class=" e">woman</p>
+            </div>
+            <div class="col-md-1">
+              <p class=" e">=</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <p class=" e" style="color: rgb(107, 179, 14);">king</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row d-flex justify-content-center">
+        <a class="kyte" href="https://github.com/kyteinsky">kyte</a>
       </div>
     </div>
 
+    <script src="{{ url_for('static',filename='js/script.js') }}?u={{ last_updated }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
 
   </body>
 </html>

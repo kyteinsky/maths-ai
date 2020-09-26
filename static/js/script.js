@@ -1,0 +1,34 @@
+window.onload = () => {
+    document.getElementById("btn").addEventListener("click", ajax);
+}
+
+function ajax(){
+    let c = document.getElementById('c').value;
+    let a = document.getElementById('a').value;
+    let b = document.getElementById('b').value;
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+    //         document.getElementById('err').style.visibility = 'visible'
+    //         document.getElementById('err').innerHTML = 'Some error connecting, please refresh or check net connection!'
+    //     }
+    //     else{
+            let x = JSON.parse(this.responseText)
+            document.getElementById('err').style.visibility = 'hidden';
+            if (x['error'] != ''){
+                document.getElementById('pred').style.visibility = 'hidden'
+                document.getElementById('err').style.visibility = 'visible'
+                document.getElementById('err').innerHTML = x['error']
+            }
+            else{
+                document.getElementById('err').style.visibility = 'hidden'
+                document.getElementById('pred').style.visibility = 'visible'
+                document.getElementById('pred').innerHTML = x['pred']
+            }
+        }
+    }
+    xhttp.open("POST", "/infer/", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // xhttp.send(`a=${a}&b=${b}&c=${c}`)
+    xhttp.send(`a=${a}&b=${b}&c=${c}`)
+}

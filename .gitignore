@@ -1,6 +1,7 @@
 *.tar.gz
 ds/
 trash/
+mathsai/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
