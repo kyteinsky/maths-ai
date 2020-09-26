@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, request, jsonify
+from flask_login import login_required
 import os
 import gensim
 
@@ -15,11 +16,18 @@ model = gensim.models.Word2Vec.load(saved_model_path)
 
 def predict(a, b, c):
     try:
-        return '', model.wv.most_similar_cosmul(positive=[a, c], negative=[b])[0][0]
+        f = open('searches.txt', 'a')
+        prediction = model.wv.most_similar_cosmul(positive=[a, c], negative=[b])[0][0]
+        ip = request.remote_addr
+        device = request.headers.get('User-Agent')
+        f.write(f'{ip}#{device}#{a}#{b}#{c}#{prediction}\n\n')
+        f.close()
+        return '', prediction
     except:
         return 'Word not in my dictionary, sorry.', ''
 
-
+# def dberror():
+#     return "500: Internal Server Error, try again later.."
 
 @app.route('/', methods=['GET'])
 def home():
@@ -49,7 +57,14 @@ def pred():
         return jsonify({'error': error, 'pred': ''})
 
 
+@app.route('/display/', methods=['GET'])
+def display():
+    pass
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+    # conn = psycopg2.connect(database="testdb", user = "postgres", password = "pass123", host = "127.0.0.1", port = "5432")
+    # if not conn:
+    #     dberror()
 
