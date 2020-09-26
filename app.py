@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, request, jsonify
-from flask_login import login_required
 import os
 import gensim
 
