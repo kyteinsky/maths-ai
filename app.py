@@ -63,7 +63,7 @@ def display():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5000)
     # conn = psycopg2.connect(database="testdb", user = "postgres", password = "pass123", host = "127.0.0.1", port = "5432")
     # if not conn:
     #     dberror()
