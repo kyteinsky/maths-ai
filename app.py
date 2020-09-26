@@ -27,17 +27,20 @@ def home():
 
 @app.route('/infer/', methods=['POST'])
 def pred():
-    error = ''
     try:
-        a = lower(request.form['a'])
-        b = lower(request.form['b'])
-        c = lower(request.form['c'])
+        global a, b, c
+        a = request.form['a'].lower().strip()
+        b = request.form['b'].lower().strip()
+        c = request.form['c'].lower().strip()
     except:
-        error = 'Invalid action!'
+        return jsonify({'error': 'Invalid action!', 'pred': ''})
     
     if a == '' or b == '' or c == '':
-        error = 'Fill out all the fields!'
+        return jsonify({'error': 'Fill out all the fields!', 'pred': ''})
     
+    if len(a.join(b).join(c).split()) > 3:
+        return jsonify({'error': 'Only one word per box!', 'pred': ''})
+
     error, inference = predict(a, b, c)
 
     if error == '':
