@@ -3,8 +3,7 @@ import gensim
 from multiprocessing import cpu_count
 import argparse
 import os
-from nltk.corpus import wordnet
-import nltk
+from 
 
 
 ap = argparse.ArgumentParser()

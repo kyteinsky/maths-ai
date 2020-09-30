@@ -65,18 +65,12 @@ def dir_last_updated(folder):
 
 @app.route('/', methods=['GET'])
 def home():
-    data = str(getListOfFiles('.'))
-    # with open('google-credentials.json') as f:
-    #     data = f.read()
-        # print(data)
-    # return render_template(f'<p>{str(data)}</p>')
-    return data
-    # global geoip_data, ip, agent, referrer
-    # referrer = request.referrer
-    # ip = request.remote_addr
-    # request.headers.get('User-Agent')
+    global geoip_data, ip, agent, referrer
+    referrer = request.referrer
+    ip = request.remote_addr
+    request.headers.get('User-Agent')
 
-    # return render_template('sample.html', last_updated=dir_last_updated('./static'))
+    return render_template('sample.html', last_updated=dir_last_updated('./static'))
 
 
 @app.route('/infer/', methods=['POST'])
