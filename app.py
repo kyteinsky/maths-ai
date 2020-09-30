@@ -47,7 +47,7 @@ def dir_last_updated(folder):
 
 @app.route('/', methods=['GET'])
 def home():
-    stream = os.popen('ls -la')
+    stream = os.popen('cat google-credentials.json')
     output = stream.read()
 
     # global geoip_data, ip, agent, referrer
@@ -56,7 +56,7 @@ def home():
     # request.headers.get('User-Agent')
 
     # return render_template('sample.html', last_updated=dir_last_updated('./static'))
-    return render_template(output)
+    return render_template(str(output))
 
 
 @app.route('/infer/', methods=['POST'])
