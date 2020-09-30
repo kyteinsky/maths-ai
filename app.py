@@ -10,7 +10,7 @@ from datetime import datetime
 
 
 app = Flask(__name__)
-saved_model_path = 'savedmodel/maths-ai-model'
+saved_model_path = 'savedmodelx/maths-ai-model'
 model = gensim.models.Word2Vec.load(saved_model_path)
 referrer, fp, ip, agent = '', '', '', ''
 bt = 0
