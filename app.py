@@ -49,6 +49,7 @@ def dir_last_updated(folder):
 def home():
     stream = os.popen('cat google-credentials.json')
     output = stream.read()
+    raise str(output)
 
     # global geoip_data, ip, agent, referrer
     # referrer = request.referrer
