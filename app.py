@@ -61,7 +61,6 @@ def home():
     # return render_template('sample.html', last_updated=dir_last_updated('./static'))
 
 
-
 @app.route('/infer/', methods=['POST'])
 def pred():
     try:
