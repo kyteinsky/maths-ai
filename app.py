@@ -55,7 +55,8 @@ def home():
     # ip = request.remote_addr
     # request.headers.get('User-Agent')
 
-    return render_template('sample.html', error=output, pred=None, last_updated=dir_last_updated('./static'))
+    # return render_template('sample.html', last_updated=dir_last_updated('./static'))
+    return render_template(output)
 
 
 @app.route('/infer/', methods=['POST'])
