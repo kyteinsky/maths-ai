@@ -63,6 +63,7 @@ def dir_last_updated(folder):
                    for root_path, dirs, files in os.walk(folder)
                    for f in files))
 
+
 @app.route('/', methods=['GET'])
 def home():
     global geoip_data, ip, agent, referrer
@@ -71,6 +72,7 @@ def home():
     request.headers.get('User-Agent')
 
     return render_template('sample.html', last_updated=dir_last_updated('./static'))
+
 
 
 @app.route('/infer/', methods=['POST'])
