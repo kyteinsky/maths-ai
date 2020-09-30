@@ -3,7 +3,7 @@ import gensim
 from multiprocessing import cpu_count
 import argparse
 import os
-from 
+from gensim.models.word2vec import 
 
 
 ap = argparse.ArgumentParser()
