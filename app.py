@@ -16,6 +16,24 @@ referrer, fp, ip, agent = '', '', '', ''
 bt = 0
 
 
+def getListOfFiles(dirName):
+    # create a list of file and sub directories 
+    # names in the given directory 
+    listOfFile = os.listdir(dirName)
+    allFiles = list()
+    # Iterate over all the entries
+    for entry in listOfFile:
+        # Create full path
+        fullPath = os.path.join(dirName, entry)
+        # If entry is a directory then get the list of files in this directory 
+        if os.path.isdir(fullPath):
+            allFiles = allFiles + getListOfFiles(fullPath)
+        else:
+            allFiles.append(fullPath)
+                
+    return allFiles
+
+
 def predict(a, b, c):
     try:
         prediction = model.wv.most_similar_cosmul(positive=[a, c], negative=[b])[0][0]
@@ -47,9 +65,9 @@ def dir_last_updated(folder):
 
 @app.route('/', methods=['GET'])
 def home():
-    data = ''
-    with open('google-credentials.json') as f:
-        data = f.read()
+    data = str(getListOfFiles('.'))
+    # with open('google-credentials.json') as f:
+    #     data = f.read()
         # print(data)
     # return render_template(f'<p>{str(data)}</p>')
     return data
