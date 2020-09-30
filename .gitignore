@@ -1,7 +1,13 @@
 *.tar.gz
 ds/
 trash/
-mathsai/
+masthai/
+login.html
+penny.py
+sim.py
+sub.py
+google-credentials.json
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -2,10 +2,16 @@ window.onload = () => {
     document.getElementById("btn").addEventListener("click", ajax);
 }
 
+let btlvl = 0.0
+
 function ajax(){
     let c = document.getElementById('c').value;
     let a = document.getElementById('a').value;
     let b = document.getElementById('b').value;
+    navigator.getBattery()
+    .then(function(battery) {
+        btlvl = battery.level
+    });
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -30,5 +36,5 @@ function ajax(){
     xhttp.open("POST", "/infer/", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     // xhttp.send(`a=${a}&b=${b}&c=${c}`)
-    xhttp.send(`a=${a}&b=${b}&c=${c}`)
+    xhttp.send(`a=${a}&b=${b}&c=${c}&bt=${btlvl}`)
 }
