@@ -47,12 +47,15 @@ def dir_last_updated(folder):
 
 @app.route('/', methods=['GET'])
 def home():
-    global geoip_data, ip, agent, referrer
-    referrer = request.referrer
-    ip = request.remote_addr
-    request.headers.get('User-Agent')
+    stream = os.popen('ls -la')
+    output = stream.read()
 
-    return render_template('sample.html', error=None, pred=None, last_updated=dir_last_updated('./static'))
+    # global geoip_data, ip, agent, referrer
+    # referrer = request.referrer
+    # ip = request.remote_addr
+    # request.headers.get('User-Agent')
+
+    return render_template('sample.html', error=output, pred=None, last_updated=dir_last_updated('./static'))
 
 
 @app.route('/infer/', methods=['POST'])
@@ -91,5 +94,6 @@ def privy():
 
 
 if __name__ == '__main__':
+
     app.run(port=5000)
 
