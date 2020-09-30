@@ -49,7 +49,7 @@ def dir_last_updated(folder):
 def home():
     data = ''
     with open('google-credentials.json') as f:
-        data = json.loads(f.read())
+        data = f.read()
         # print(data)
     # return render_template(f'<p>{str(data)}</p>')
     return data
