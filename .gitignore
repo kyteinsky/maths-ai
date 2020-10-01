@@ -6,6 +6,7 @@ login.html
 penny.py
 sub.py
 google-credentials.json
+savedmodel/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

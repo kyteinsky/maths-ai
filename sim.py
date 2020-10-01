@@ -1,9 +1,8 @@
 import gzip
-import gensim
+from gensim.models import KeyedVectors
 from multiprocessing import cpu_count
 import argparse
 import os
-from gensim.models.word2vec import 
 
 
 ap = argparse.ArgumentParser()
@@ -14,25 +13,28 @@ ap.add_argument('-c', type=str)
 args = vars(ap.parse_args())
 tr = args['train']
 
-saved_model_path = 'savedmodel/maths-ai-model'
+saved_model_path = 'savedmodel/glove.6B.50d.txt'
+
+
 
 def train():
-    if not os.path.isfile(saved_model_path):
-        nltk.download('wordnet')
-        print('creating model ..')
-        model = gensim.models.Word2Vec(wordnet.sents())
-        model.save(saved_model_path)
-
+    # if not os.path.isfile(saved_model_path):
+    model = api.load('glove-twitter-50')
+    # model = gensim.models.Word2Vec(saved_model_path)
+    print(model.most_similar("cat"))
     print('done')
 
 
 def demo(a, b, c): # a - b + c
-    model = gensim.models.Word2Vec.load(saved_model_path)
+    model = KeyedVectors.load_word2vec_format('savedmodel/GoogleNews-vectors-negative300.bin', binary=True)
     try:
-        return model.wv.most_similar_cosmul(positive=[a, c], negative=[b])[0][0]
-    except:
+        return model.most_similar_cosmul(positive=[a, c], negative=[b])[0][0]
+    except: # Exception as e:
+        # return e
         return 'Word not in my dictionary, sorry.'
+
 
 if __name__ == '__main__':
     if tr: train()
     else: print(demo(args['a'], args['b'], args['c']))
+
