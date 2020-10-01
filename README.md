@@ -5,9 +5,13 @@
 View it LIVE at [Maths AI website](link.link)
 <br><br><br>
 ---
-Made using gensim library, representation of words as vectors in latent space
 
-Used OpinRank data
+Made using gensim library, representation of words as vectors in latent space<br>
+Used Google News Pretrained Model for GCP Deployment
+
+<hr>
+
+Used OpinRank data for Heroku Deployment
 
 ```
 @article{ganesan2012opinion,
@@ -21,3 +25,4 @@ Used OpinRank data
   publisher={Springer} 
 }
 ```
+---
