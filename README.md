@@ -2,7 +2,7 @@
 
 ## Doing simple addition and subtraction in NLP with *WORDS!*
 <br><br>
-View it LIVE at [Maths AI website](link.link)
+View it LIVE at [Maths AI website](https://maths-ai.herokuapp.com/)
 <br><br><br>
 ---
 
