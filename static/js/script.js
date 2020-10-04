@@ -4,10 +4,10 @@ window.onload = () => {
 
 // Code for button click on pressing enter
 
-var input = document.getElementsByClassName("last-input");
+var input = document.getElementsById("b");
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
-    document.getElementsByClassName("equals").click();
+    document.getElementsById("btn").click();
   }
 });
 
