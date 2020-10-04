@@ -7,9 +7,6 @@ View it LIVE at [Maths AI website](https://maths-ai.herokuapp.com/)
 ---
 
 Made using gensim library, representation of words as vectors in latent space<br>
-Used Google News Pretrained Model for GCP Deployment
-
-<hr>
 
 Used OpinRank data for Heroku Deployment
 
