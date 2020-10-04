@@ -2,6 +2,15 @@ window.onload = () => {
     document.getElementById("btn").addEventListener("click", ajax);
 }
 
+// Code for button click on pressing enter
+
+var input = document.getElementsById("b");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    document.getElementsById("btn").click();
+  }
+});
+
 let btlvl = 0.0
 
 function ajax(){
